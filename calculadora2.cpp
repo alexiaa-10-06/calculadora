@@ -15,5 +15,22 @@ switch (op) {
 case '+':
 cout<< num1 <<"+"<< num2 <<"="<< num1 + num2;
 break;
-
-  
+case '-':
+cout<< num1 <<"-"<< num2 <<"="<< num1 - num2;
+break;
+case '*':
+cout<< num1 <<"*"<< num2 <<"="<< num1 * num2;
+break;
+case '/':
+  if(num2 != 0)
+  {
+cout<< num1 <<"/"<< num2 <<"="<< num1 / num2;
+  }else{
+    cout<<"se introdujo 0, no es divisible";
+  }
+    break;
+default:
+cout<<"operador invalido"
+  }
+  return 0;
+}
