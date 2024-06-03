@@ -4,7 +4,7 @@ class CalculatorApp:
     def __init__(self, master):
         self.master = master
         master.title("Calculadora")
-        master.configure(bg="black")  # Set background to black
+        master.configure(bg="black")  
 
         self.result_var = tk.StringVar()
         self.result_var.set("0")
@@ -13,11 +13,10 @@ class CalculatorApp:
         self.create_widgets()
 
     def create_widgets(self):
-        # Pantalla
-        self.result_label = tk.Label(self.master, textvariable=self.result_var, font=("Arial", 24), bd=5, relief=tk.SUNKEN, anchor=tk.E, bg="black", fg="white")  # Set label background to black and text to white
+        
+        self.result_label = tk.Label(self.master, textvariable=self.result_var, font=("Arial", 24), bd=5, relief=tk.SUNKEN, anchor=tk.E, bg="black", fg="white")  
         self.result_label.grid(row=0, column=0, columnspan=4, sticky="nsew")
 
-        # Botones
         buttons = [
             ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
             ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
@@ -26,13 +25,12 @@ class CalculatorApp:
         ]
 
         for (text, row, col) in buttons:
-            if text.isdigit():  # Set numeric buttons to gray
+            if text.isdigit():  
                 button = tk.Button(self.master, text=text, font=("Arial", 18), command=lambda t=text: self.on_button_click(t), bg="gray", fg="black")
-            else:  # Set operation buttons to orange
+            else:  
                 button = tk.Button(self.master, text=text, font=("Arial", 18), command=lambda t=text: self.on_button_click(t), bg="orange", fg="black")
             button.grid(row=row, column=col, sticky="nsew")
         
-        # Ajustar tamaños de las celdas
         for i in range(5):
             self.master.grid_rowconfigure(i, weight=1)
             self.master.grid_columnconfigure(i, weight=1)
